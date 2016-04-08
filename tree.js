@@ -7,6 +7,7 @@ class Node {
     }
 }
 
+//Sample tree; j is root
 
 let a = new Node('a',[]),
     b = new Node('b',[]),
@@ -24,7 +25,7 @@ let a = new Node('a',[]),
 //three arguments: root node of tree, value to search for in tree, unseen array (should be omitted when using API)
 function depthFirstSerach(node, searchValue, unseen = []) { 
         
-    //remove comment marks to check order of nodes is what we want/depth-first
+    //uncomment to check order of nodes is what is expected in depth-first search
     //console.log(node.value); 
     
     //check if current node value is the search value
