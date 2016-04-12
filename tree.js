@@ -22,11 +22,11 @@ let a = new Node('a',[]),
     i = new Node('i',[h,k]),
     j = new Node('j',[i,g,f]);
 
-//three arguments: root node of tree, value to search for in tree, unseen array (should be omitted when using API)
+//three arguments: root node of tree, value to search for in tree, unseen array (third argument should be omitted when using API)
 function depthFirstSerach(node, searchValue, unseen = []) { 
         
     //uncomment to check order of nodes is what is expected in depth-first search
-    //console.log(node.value); 
+    console.log(node.value); 
     
     //check if current node value is the search value
     //doesn't work if node value is an object reference. need to add additional functionality. 
@@ -54,21 +54,4 @@ function depthFirstSerach(node, searchValue, unseen = []) {
 }
 
 
-function breadthFirstSearch(node, searchValue) {
-    let nextNodes = [],
-        currentNode = node;
 
-    
-    while (currentNode) {
-        if (currentNode.value === searchValue) {
-            return searchValue; 
-        } else {
-            if (currentNode.child.length) {
-                currentNode.child.forEach(n => nextNodes.push(n)); 
-            }
-            currentNode = nextNodes.shift();
-        }
-    }
-    
-    return undefined; 
-}
