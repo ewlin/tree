@@ -42,11 +42,11 @@ function depthFirstSerach(node, searchValue, unseen = []) {
             //continue searching tree another level down
             return depthFirstSerach(node.child[0], searchValue, unseen); 
             
-            //if we've reached a leaf in the tree with no child node...continue the process with the most recently saved node in 'unseen'
+        //if we've reached a leaf in the tree with no child node...continue the process with the most recently saved node in 'unseen'
         } else if (unseen.length) {
             return depthFirstSerach(unseen[0], searchValue, unseen.slice(1));
             
-            //if value not found in tree, return undefined
+        //if value not found in tree, return undefined
         } else {
             return undefined; 
         }
