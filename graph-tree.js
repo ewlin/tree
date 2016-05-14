@@ -1,7 +1,9 @@
 //NODE DATA STRUCTURE CONSTRUCTOR
 function GraphNode (value, child) {
+
     //non-object value (only JS primitives)
     this.value = value;
+    
     //array of references to child GraphNode objects
     this.child = child;
 }
@@ -20,21 +22,21 @@ function depthFirstSearch (node, searchValue, unseen = [], seen = []) {
 
     //a stringified list of nodes already traversed 
     traversedVals = seen.map(n => n.value).join(','); 
+    
     //update/filter the unseen list. Unnecessary in normal trees; useful in corrupt trees or graphs with cycles/circular references since nodes maybe children to more than one parent and get pushed into the unseen array. Avoids unnecessarily visiting a node more than once and infinite loops
     filteredUnseen = unseen.filter(n => seen.indexOf(n) == -1);
 
-    //Uncomment to keep track of seen and unseen nodes at each recursive call
-    //console.log("Seen: " + traversedVals);
-    //console.log("Unseen: " + filteredUnseen.map(n => n.value).join(','));
-    
     //check if current node value is the search value
     //doesn't work if node value is an object reference. need to add additional functionality.
     if (node.value === searchValue) {
         return {value: searchValue, traversed: traversedVals}; 
+        
     } else {
+        
         //if the node has child node(s)...
         if (filteredChilds.length) {
             if (filteredChilds.length > 1) filteredChilds.slice(1).reverse().forEach(n => unseen.unshift(n));
+            
             //continue searching tree another level down
             return depthFirstSearch(filteredChilds[0], searchValue, unseen, seen);
 
